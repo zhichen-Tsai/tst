@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Bootstrap v502 CSS -->
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+
+    <title>網頁-抬頭</title>
+</head>
+
+<body>
+    <h1>歡迎，蒞臨我的網頁!</h1>
+    <input id="myfiles" multiple type="file" onchange="previewFile()"><br>
+    <p class="content"></p>
+
+    <p class="okcontent">test</p>
+    <script type="text/javascript">
+    function previewFile() {
+        const content = document.querySelector('.content');
+        const fileInput = document.querySelector("#myfiles");  //type="file"  <input>
+        const files = fileInput.files;    //返回文件的名称。安全原因，返回的值并不包含文件路径。
+        const fileListLength = files.length; //檔案數量
+        content.innerHTML = ""
+
+        for (let i = 0; i < fileListLength; i++) {
+            const reader = new FileReader();
+            reader.readAsText(files[i]);
+            //files[i].webkitRelativePath;
+            // 傳回目錄
+
+            reader.addEventListener("load", () => {
+                const oldstr = reader.result;
+                var cn1 = oldstr.search(",");
+                var str1 = oldstr.replace(/,/, ".");
+                var cn2 = str1.search(",");
+                var strl = oldstr.substr(0, cn1)
+                var strm = oldstr.substr(cn1 + 1, (cn2 - cn1 - 1))
+                var strr = oldstr.substr(cn2 + 1, )
+ //               content.innerHTML = oldstr;
+                content.innerHTML = '<span id="sp1">'+strl+'</span><input type="text" id="mnumber" value=' + strm + ' name="lname"><input type="button" id="myBtn" onclick="numchang()" value="修改">'+'<span id="sp2">'+strr+'</span>';
+
+                //               content.innerHTML = '<p>'+content.innerHTML+files[i].name +'---' +reader.result+'</p>';
+            }, false);
+        }
+    }
+    </script>
+
+    <script type="text/javascript">
+    function numchang() {
+        const okcon = document.querySelector('.okcontent');
+        const astr = document.getElementById("sp1").innerHTML;
+        const bstr = document.getElementById("mnumber").value;
+        const cstr = document.getElementById("sp2").innerHTML;
+       okcon.innerHTML = astr+','+bstr+','+cstr;
+    }
+
+    </script>
+
+ <!-- Bootstrap v502 JavaScript -->
+    <script src="js/bootstrap.bundle.min.js">
+    < /body>
+
+    <
+    /html>
