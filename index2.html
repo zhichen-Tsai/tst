@@ -11,19 +11,25 @@
 </head>
 <body>
 	<h1>歡迎，蒞臨我的網頁!</h1>
+	<p class="content"></p>
 <span id="placeholder"></span>
 
-<script>
-    var xhr = new XMLHttpRequest();
-    xhr.onreadystatechange = function() {
-        if (xhr.readyState == 4 && xhr.status == 200) {
-            document.getElementById('placeholder').innerHTML = xhr.responseText;
-        }
-    }
-    xhr.open('GET', '4001.txt');
-    xhr.send();
-</script>
+<script type="text/javascript">
+const content = document.querySelector('.content');
+content.innerHTML="ok1";
+//var fs = require("fs");
+content.innerHTML="ok2";
 
+//console.log("Going to write into existing file");
+//fs.writeFile('input.txt', 'Simply Easy Learning!', function(err) 
+//{
+//   if (err) {
+//      return console.error(err);
+//       }
+//   console.log("Data written successfully!");
+//   console.log("Let's read newly written data");
+//});
+</script>
 
 
 
